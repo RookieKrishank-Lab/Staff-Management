@@ -15,9 +15,11 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 public class StaffDetailsApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(StaffDetailsApplication.class, args);
+	}
 
-//	static ProjectDetails projectDetails = null;
-	static StaffRepository usersRepository;
+	/*static StaffRepository usersRepository;
 	static ProjectRepository projectRepository;
 
 	public static void main(String[] args) {
@@ -31,10 +33,10 @@ public class StaffDetailsApplication {
 		usersRepository.save(createUserObject2());
 }
 
-
+	//to add user manually in the table
 	private static StaffDetails createUserObject1() {
 		StaffDetails user = new StaffDetails();
-		user.setJoinYear(2023);
+		user.setJoinYear(2021);
 		user.setStaffMail("ron@mail.com");
 		user.setStaffName("ron");
 		user.setStaffSalary(89000);
@@ -47,13 +49,13 @@ public class StaffDetailsApplication {
 		System.out.println(roles);
 		projectRepository.save(role);
 
-		/*ProjectDetails role1 = new ProjectDetails();
+		ProjectDetails role1 = new ProjectDetails();
 		role1.setProjectId(891L);
 		role1.setProjectName("Pepsi");
 		roles.add(role1);
 		projectRepository.save(role1);
 		user.setProjectDetailsList(roles);
-		System.out.println(roles);*/
+		System.out.println(roles);
 		return user;
 	}
 
@@ -80,5 +82,5 @@ public class StaffDetailsApplication {
 		user.setProjectDetailsList(roles);
 		System.out.println(roles);
 		return user;
-	}
+	}*/
 }

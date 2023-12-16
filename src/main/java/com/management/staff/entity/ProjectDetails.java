@@ -14,12 +14,8 @@ import java.util.List;
 @Table(name="project")
 public class ProjectDetails {
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long projectId;
     private String projectName;
-/*
-    @ManyToMany(mappedBy = "projectDetailsList")
-    private List<StaffDetails> staffDetails;
-*/
+
 
 }

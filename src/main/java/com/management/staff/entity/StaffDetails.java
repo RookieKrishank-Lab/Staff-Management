@@ -22,7 +22,7 @@ public class StaffDetails {
 	private String staffMail;
 	private double staffSalary;
 	private int joinYear;
-//	@Transient
+
 	@ManyToMany
 	@JoinTable(
 			name = "staff_project",											//3rd  table name

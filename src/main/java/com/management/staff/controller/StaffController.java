@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.management.staff.dto.StaffDetailDto;
 import com.management.staff.service.StaffService;
@@ -20,6 +17,12 @@ import lombok.AllArgsConstructor;
 public class StaffController {
 
 	private StaffService staffService;
+
+	@PostMapping("/add")
+	public ResponseEntity<StaffDetailDto> addStaff(@RequestBody StaffDetailDto staffDetailDto) {
+		StaffDetailDto staffDetails = staffService.addStaffDetails(staffDetailDto);
+		return ResponseEntity.status(HttpStatus.CREATED).body(staffDetails);
+	}
 	
 	@GetMapping("/getStaffBy/{joinYear}/{staffSalary}")
 	public ResponseEntity<List<StaffDetailDto>> getStaffByYearAndSalary(@PathVariable int joinYear, @PathVariable double staffSalary){
@@ -42,6 +45,15 @@ public class StaffController {
 
 		return new ResponseEntity<>(staffIds, HttpStatus.OK);
 	}
-	
+
+	@GetMapping("/search/{joinYear}/{staffSalary}/{projectCount}")
+	public ResponseEntity<List<StaffDetailDto>> searchStaff(
+			@PathVariable int joinYear,
+			@PathVariable double staffSalary,
+			@PathVariable int projectCount) {
+
+		List<StaffDetailDto> result = staffService.findStaffByConditions(joinYear, staffSalary, projectCount);
+		return new ResponseEntity<>(result, HttpStatus.OK);
+	}
 	
 }

@@ -15,6 +15,5 @@ import java.util.List;
 public class ProjectDetailsDto {
     private Long projectId;
     private String projectName;
-    private List<StaffDetails> staffDetails;
 
 }
